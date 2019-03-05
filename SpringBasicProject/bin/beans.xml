@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans-4.0.xsd">
+	
+	<!-- by using setter -->	
+	<!--   <bean id="emp" class="com.cg.beans.Employee">
+	
+	<property name="fName" value="Manish"></property>
+	<property name="lName" value="Kumar"></property>
+	<property name="age" value="22"></property>
+	</bean> -->
+	<!-- by using constructor -->
+	 
+	 <!-- <bean id="emp" class="com.cg.beans.Employee" > -->
+	 <!--  <constructor-arg index="0" value="Manish"></constructor-arg>
+	 <constructor-arg index="1" value="Kumar"></constructor-arg>
+	 <constructor-arg index="2" value="22"></constructor-arg>-->
+	 <!--  
+	 <constructor-arg index="0" value="Manish Kumar"></constructor-arg>
+	 <constructor-arg index="1" value="22"></constructor-arg>
+	 <property name="skills">
+	 <list>
+	 <value>c</value>
+	 <value>java</value>
+	 <value>python</value>
+	 <value>HTML</value>
+	 </list>
+	 
+	 </property>
+	 <property name="credentials">
+	 
+	 <map>
+	 <entry key="1" value="Manish Kumar"></entry>
+	 <entry key="2" value="Anamika Sengar"></entry>
+	 <entry key="3" value="Saurabh"></entry>
+	 <entry key="4" value="Pritam"></entry>
+	 
+	 
+	 </map>
+	 
+	 
+	 </property>-->
+	 
+	 <bean id="emp" class="com.cg.beans.Employee" autowire="byName" init-method="m1">
+	 <property name="fName" value="Manish"></property>
+	 <property name="lName" value="Kumar"></property>
+	 <property name="age" value="22"></property>
+	<!--  <property name="dept" ref="dept"></property> -->
+	 </bean>
+	 
+	 
+	 <bean class="com.cg.beans.Department" id="dept">
+	 <property name="deptNo" value="010"></property>
+	 <property name="deptName" value="Finance"></property>
+	 
+	 </bean>
+	  <bean class="com.cg.beans.Department" id="dept1">
+	 <property name="deptNo" value="020"></property>
+	 <property name="deptName" value="Cultural"></property>
+	 
+	 </bean>
+	 
+	 <bean id="emp1" class="com.cg.beans.Employee" autowire="byName" destroy-method="m2"><!-- autowire will take when there is single dept for many employee -->
+	 <property name="fName" value="Ashish"></property>
+	 <property name="lName" value="Bhatia"></property>
+	 <property name="age" value="25"></property>
+	 <!-- <property name="dept" ref="dept"></property> -->
+	
+	 
+	 </bean>
+	
+	
+</beans>
