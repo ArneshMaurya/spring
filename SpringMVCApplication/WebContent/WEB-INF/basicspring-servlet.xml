@@ -14,13 +14,16 @@ http://www.springframework.org/schema/mvc/spring-mvc.xsd">
  
 <context:annotation-config />
 	
-<context:component-scan base-package="com.cg.MVC.controller" />
+<context:component-scan base-package="com.cg.springmvc.controller" />
+
+
 <bean id="myBeansValidator" class=
 "org.springframework.validation.beanvalidation.LocalValidatorFactoryBean"/>
     <mvc:annotation-driven validator="myBeansValidator"/>
  
     
-  <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+  <bean id="viewResolver" 
+  class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="viewClass">
 			<value>org.springframework.web.servlet.view.JstlView</value>
 		</property>

@@ -1,12 +1,20 @@
 package com.cg.MVC.bean;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.Pattern;
 
-import org.hibernate.validator.constraints.NotEmpty;
 
+import org.hibernate.validator.constraints.NotEmpty;
+@Entity
 public class Customer {
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	private int customerId;
 @NotEmpty(message="First Nmae cannot be blank")	
 @Pattern(regexp="[A-Z][a-z]{4,}",message="Name should contain only alphabets")	
 	private String firstName;
@@ -20,7 +28,32 @@ public class Customer {
 @Pattern(regexp="[0-9]{10}",message="less than 10 digits")
 
 	private String mobno;
+	private String password;
 	private String city;
+
+	public Customer(int customerId, String firstName, String lastName, int age, String mobno, String password,
+			String city) {
+		super();
+		this.customerId = customerId;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.age = age;
+		this.mobno = mobno;
+		this.password = password;
+		this.city = city;
+	}
+	public int getCustomerId() {
+		return customerId;
+	}
+	public void setCustomerId(int customerId) {
+		this.customerId = customerId;
+	}
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
 	public String getFirstName() {
 		return firstName;
 	}
@@ -66,7 +99,7 @@ public class Customer {
 	@Override
 	public String toString() {
 		return "Customer [firstName=" + firstName + ", lastName=" + lastName + ", age=" + age + ", mobno=" + mobno
-				+ ", city=" + city + "]";
+				+ ", password=" + password + ", city=" + city + "]";
 	}
 	
 }

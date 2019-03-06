@@ -7,12 +7,12 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>Customer registered successfully!!!</h1>
+<H1>Customer Registered Successfully....</H1>
 <table>
-<tr><td>First Name:<td>${customer.firstName}</td></tr>
-<tr><td>Last Name:<td>${customer.lastName}</td></tr>
-<tr><td>mobile number:<td>${customer.mobno}</td></tr>
-<tr><td>City:<td>${customer.city}</td></tr>
+<tr><td>Customer Id : <td>${customer.customerId }</td></tr>
+<tr><td>First Name : <td>${customer.firstName}</td></tr>
+<tr><td>Last Name : <td>${customer.lastName}</td></tr>
+<tr><td>email  : <td>${customer.email}</td></tr>
 </table>
 </body>
 </html>
